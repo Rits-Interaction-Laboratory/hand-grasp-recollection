@@ -1,0 +1,418 @@
+﻿2019/11/01 14:48:08 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\MonitoringSystem\MonitoringSystem.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\\include" /I"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\\MonitoringSystem\OKAO Vision\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt network.cpp
+         network.cpp
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8): warning C4068: 不明なプラグマがありました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\include\opencv2\flann\logger.h(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\include\opencv2\legacy\compat.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(850): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(852): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(854): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(857): warning C4244: '+=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(858): warning C4244: '+=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(859): warning C4244: '+=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(1027): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(1031): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\image.h(1169): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(62): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(62): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(84): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(85): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(88): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(104): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(122): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\detectionlog.h(145): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\kinectpackutil.hpp(23): warning C4244: '=' : 'double' から 'unsigned char' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(211): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(212): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(213): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(214): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(215): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(229): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(230): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(231): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(232): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(233): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(271): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(274): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(302): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(303): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(304): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(305): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(306): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(323): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(324): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(325): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(326): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(327): warning C4244: '引数' : '__int64' から 'unsigned int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1030): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1030): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1099): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1160): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1884): warning C4244: '引数' : '__int64' から 'unsigned long' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(2280): warning C4244: '引数' : '__int64' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3291): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3314): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3324): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3343): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3345): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3359): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3368): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3387): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3389): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3402): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3411): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3431): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3433): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3445): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3447): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3454): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3474): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3476): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3489): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3491): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3498): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3519): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3521): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3539): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3541): warning C4018: '>=' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3548): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3655): warning C4244: '引数' : '__int64' から '__w64 int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3663): warning C4244: '引数' : '__int64' から '__w64 int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(3820): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1382): warning C4101: 't_saveSkelton' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1344): warning C4101: 'spanTime' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(1382): warning C4101: 't_saveDepth' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(2514): warning C4101: 'e' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4157): warning C4244: '引数' : '__int64' から 'unsigned long' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4162): warning C4244: '引数' : '__int64' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4220): warning C4101: 'spanTime' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4452): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4467): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4470): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4493): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4509): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4524): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4628): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4307): warning C4101: 'spanTime' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4822): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4837): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4840): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4863): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4880): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4888): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4899): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4905): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4976): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(4677): warning C4101: 'spanTime' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5028): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5029): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5030): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5035): warning C4258: 'SSD' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5024) : 'SSD' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5018) : 'SSD' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5036): warning C4258: 'SSD' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5024) : 'SSD' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5018) : 'SSD' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5036): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5059): warning C4101: 'spanTime' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5661): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5845): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5904): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5934): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(5996): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6007): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6091): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6126): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6177): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6203): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6291): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6294): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6392): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6395): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6506): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6509): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6599): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6630): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6634): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6638): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6642): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6646): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6650): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6656): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6671): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6680): warning C4258: 'count' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6671) : 'count' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6656) : 'count' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6680): warning C4258: 'count' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6671) : 'count' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6656) : 'count' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6683): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6691): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6703): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6717): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6732): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6745): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6789): warning C4244: '引数' : '__int64' から 'unsigned long' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6026): warning C4101: 'filenameRGB' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6106): warning C4101: 'filenameRGB' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(6938): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7122): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7199): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7261): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7272): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7356): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7392): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7446): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7472): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7560): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7563): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7661): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7664): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7775): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7778): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7868): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7899): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7903): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7907): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7911): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7915): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7919): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7925): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7940): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7949): warning C4258: 'count' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7940) : 'count' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7925) : 'count' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7949): warning C4258: 'count' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7940) : 'count' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7925) : 'count' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7952): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7960): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7972): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7986): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8001): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8014): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8058): warning C4244: '引数' : '__int64' から 'unsigned long' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7291): warning C4101: 'filenameRGB' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(7371): warning C4101: 'filenameRGB' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8205): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8389): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8466): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8528): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8539): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8623): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8658): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8709): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8735): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8823): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8826): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8924): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8927): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9038): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9041): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' の宣言を確認してください。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9131): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9162): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9166): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9170): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9174): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9178): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9182): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9188): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9202): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9211): warning C4258: 'count' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9202) : 'count' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9188) : 'count' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9211): warning C4258: 'count' : for ループからの定義は無視されます。外側のスコープからの定義が使われます。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9202) : 'count' の定義が無視されました。
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9188) : 'count' の定義が使用されました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9214): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9222): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9248): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9263): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9276): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(9319): warning C4244: '引数' : '__int64' から 'unsigned long' への変換です。データが失われる可能性があります。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8558): warning C4101: 'filenameRGB' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\network.cpp(8638): warning C4101: 'filenameRGB' : ローカル変数は 1 度も使われていません。
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\forked_stream.h(36): warning C4373: 'basic_forked_ostreambuf<Ch>::seekoff': 仮想関数は 'std::basic_streambuf<_Elem,_Traits>::seekoff' をオーバーライドします。前バージョンのコンパイラは、パラメーターの違いが const/volatile 修飾子に限られる場合はオーバーライドしませんでした。
+                 with
+                 [
+                     Ch=char
+                 ]
+                 and
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\streambuf(420) : 'std::basic_streambuf<_Elem,_Traits>::seekoff' の宣言を確認してください。
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\forked_stream.h(84) : コンパイルされたクラスの テンプレート のインスタンス化 'basic_forked_ostreambuf<Ch>' の参照を確認してください
+                 with
+                 [
+                     Ch=char
+                 ]
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\forked_stream.h(83): クラス テンプレート のメンバー関数 'basic_forked_ostream<Ch>::basic_forked_ostream(std::basic_ostream<_Elem,_Traits> &,std::basic_ostream<_Elem,_Traits> &)' のコンパイル中
+                 with
+                 [
+                     Ch=char,
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\forked_stream.h(101) : コンパイルされたクラスの テンプレート のインスタンス化 'basic_forked_ostream<Ch>' の参照を確認してください
+                 with
+                 [
+                     Ch=char
+                 ]
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\forked_stream.h(44): warning C4373: 'basic_forked_ostreambuf<Ch>::seekpos': 仮想関数は 'std::basic_streambuf<_Elem,_Traits>::seekpos' をオーバーライドします。前バージョンのコンパイラは、パラメーターの違いが const/volatile 修飾子に限られる場合はオーバーライドしませんでした。
+                 with
+                 [
+                     Ch=char
+                 ]
+                 and
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\streambuf(427) : 'std::basic_streambuf<_Elem,_Traits>::seekpos' の宣言を確認してください。
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\prefixed_stream.h(26): warning C4373: 'basic_prefixed_ostreambuf<Ch>::seekoff': 仮想関数は 'std::basic_streambuf<_Elem,_Traits>::seekoff' をオーバーライドします。前バージョンのコンパイラは、パラメーターの違いが const/volatile 修飾子に限られる場合はオーバーライドしませんでした。
+                 with
+                 [
+                     Ch=char
+                 ]
+                 and
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\streambuf(420) : 'std::basic_streambuf<_Elem,_Traits>::seekoff' の宣言を確認してください。
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\prefixed_stream.h(75) : コンパイルされたクラスの テンプレート のインスタンス化 'basic_prefixed_ostreambuf<Ch>' の参照を確認してください
+                 with
+                 [
+                     Ch=char
+                 ]
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\prefixed_stream.h(73): クラス テンプレート のメンバー関数 'basic_prefixed_ostream<Ch>::basic_prefixed_ostream(std::basic_ostream<_Elem,_Traits> &,const std::string &)' のコンパイル中
+                 with
+                 [
+                     Ch=char,
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\prefixed_stream.h(92) : コンパイルされたクラスの テンプレート のインスタンス化 'basic_prefixed_ostream<Ch>' の参照を確認してください
+                 with
+                 [
+                     Ch=char
+                 ]
+     1>c:\users\administrator\desktop\monitoringsystem(物体操作シーン解析)\monitoringsystem\prefixed_stream.h(32): warning C4373: 'basic_prefixed_ostreambuf<Ch>::seekpos': 仮想関数は 'std::basic_streambuf<_Elem,_Traits>::seekpos' をオーバーライドします。前バージョンのコンパイラは、パラメーターの違いが const/volatile 修飾子に限られる場合はオーバーライドしませんでした。
+                 with
+                 [
+                     Ch=char
+                 ]
+                 and
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\streambuf(427) : 'std::basic_streambuf<_Elem,_Traits>::seekpos' の宣言を確認してください。
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\Debug\MonitoringSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\\Debug" /LIBPATH:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\\lib" /LIBPATH:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\\lib\Debug" /LIBPATH:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\\MonitoringSystem\OKAO Vision\lib" msgpackd.lib OkaoZ43.lib winmm.lib opencv_calib3d249d.lib opencv_contrib249d.lib opencv_flann249d.lib opencv_gpu249d.lib opencv_haartraining_engined.lib opencv_highgui249d.lib opencv_imgproc249d.lib opencv_legacy249d.lib opencv_ml249d.lib opencv_nonfree249d.lib opencv_objdetect249d.lib opencv_ocl249d.lib opencv_photo249d.lib opencv_stitching249d.lib opencv_superres249d.lib opencv_ts249d.lib opencv_video249d.lib libzmq.lib libmysql.lib opencv_core249d.lib opencv_features2d249d.lib /NODEFAULTLIB:LIBCMT /ASSEMBLYRESOURCE:Debug\MonitoringSystem.Resource.resources /MANIFEST /ManifestFile:"Debug\MonitoringSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\Debug\MonitoringSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\Debug\MonitoringSystem.lib" /MACHINE:X86 Debug\MonitoringSystem.res
+         Debug\MonitoringSystem.exe.embed.manifest.res
+         Debug\base64.obj
+         Debug\bmp.obj
+         Debug\communication.obj
+         Debug\Connection.obj
+         Debug\date.obj
+         Debug\EventSearch.obj
+         Debug\FileOperator.obj
+         Debug\forked_stream.obj
+         Debug\geometory.obj
+         Debug\HumanProcess.obj
+         Debug\Humansearch.obj
+         Debug\imageEdit.obj
+         Debug\InBitStream.obj
+         Debug\JpegDecoder.obj
+         Debug\label.obj
+         Debug\layer.obj
+         Debug\ManData.obj
+         Debug\MonitoringSystem.obj
+         Debug\MonitoringSystemDlg.obj
+         Debug\network.obj
+         Debug\NetworkCamera.obj
+         Debug\objectInfo.obj
+         Debug\ObjectSearch.obj
+         Debug\Pair.obj
+         Debug\record.obj
+         Debug\sensor.obj
+         Debug\stdafx.obj
+         Debug\Surf.obj
+         Debug\Util.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\MonitoringSystem.exe.embed.manifest" /manifest Debug\MonitoringSystem.exe.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       LinkEmbedManifest:
+         MonitoringSystem.vcxproj -> C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\Debug\MonitoringSystem.exe
+     1>プロジェクト "C:\Users\administrator\Desktop\MonitoringSystem(物体操作シーン解析)\MonitoringSystem\MonitoringSystem.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:05.87
