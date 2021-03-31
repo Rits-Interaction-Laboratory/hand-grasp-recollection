@@ -1,0 +1,32 @@
+﻿2021/02/24 16:04:28 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\administrator\Desktop\OpenposeConnector\OpenposeConnector\OpenposeConnector.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\administrator\Desktop\OpenposeConnector\\include /I"C:\dev\opencv-3.1.0\build\include" /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+     1>C:\dev\opencv-3.1.0\build\include\opencv2/core/mat.hpp(1965): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\dev\opencv-3.1.0\build\include\opencv2/core/persistence.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\dev\opencv-3.1.0\build\include\opencv2/core/utility.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\Users\administrator\Desktop\OpenposeConnector\include\image.h(118): warning C4172: ローカル変数またはテンポラリのアドレスを返します。
+     1>C:\Users\administrator\Desktop\OpenposeConnector\include\image.h(127): warning C4172: ローカル変数またはテンポラリのアドレスを返します。
+     1>C:\Users\administrator\Desktop\OpenposeConnector\include\image.h(330): warning C4267: '初期化中' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(193): warning C4267: '初期化中' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(201): warning C4267: '=' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(264): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>main.cpp(593): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : 'fopen' の宣言を確認してください。
+     1>main.cpp(1050): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : 'fopen' の宣言を確認してください。
+     1>main.cpp(836): warning C4101: 'suLhandP0X' : ローカル変数は 1 度も使われていません。
+     1>main.cpp(836): warning C4101: 'suRhandP0Y' : ローカル変数は 1 度も使われていません。
+     1>main.cpp(836): warning C4101: 'suRhandP0X' : ローカル変数は 1 度も使われていません。
+     1>main.cpp(836): warning C4101: 'suLhandP0Y' : ローカル変数は 1 度も使われていません。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\administrator\Desktop\OpenposeConnector\x64\Release\OpenposeConnector.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\dev\opencv-3.1.0\build\x64\vc12\lib" opencv_world310.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\administrator\Desktop\OpenposeConnector\x64\Release\OpenposeConnector.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\administrator\Desktop\OpenposeConnector\x64\Release\OpenposeConnector.lib" /MACHINE:X64 x64\Release\main.obj
+         コード生成しています。
+         コード生成が終了しました。
+         OpenposeConnector.vcxproj -> C:\Users\administrator\Desktop\OpenposeConnector\x64\Release\OpenposeConnector.exe
+     1>プロジェクト "C:\Users\administrator\Desktop\OpenposeConnector\OpenposeConnector\OpenposeConnector.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:04.53

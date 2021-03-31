@@ -1,0 +1,46 @@
+﻿2021/02/12 18:17:46 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\administrator\Desktop\AutoPoseTriming\PoseEstimator\PoseEstimator.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\administrator\Desktop\AutoPoseTriming\\include /I"C:\dev\opencv-3.1.0\build\include" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+     1>C:\dev\opencv-3.1.0\build\include\opencv2/core/mat.hpp(1965): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\dev\opencv-3.1.0\build\include\opencv2/core/persistence.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\dev\opencv-3.1.0\build\include\opencv2/core/utility.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     1>C:\Users\administrator\Desktop\AutoPoseTriming\include\image.h(121): warning C4172: ローカル変数またはテンポラリのアドレスを返します。
+     1>C:\Users\administrator\Desktop\AutoPoseTriming\include\image.h(130): warning C4172: ローカル変数またはテンポラリのアドレスを返します。
+     1>C:\Users\administrator\Desktop\AutoPoseTriming\include\image.h(325): warning C4267: '初期化中' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(227): warning C4267: '=' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(242): warning C4267: '=' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(433): warning C4267: '初期化中' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(441): warning C4267: '=' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(504): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>main.cpp(512): warning C4267: '初期化中' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(520): warning C4267: '=' : 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+     1>main.cpp(585): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>main.cpp(1115): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : 'fopen' の宣言を確認してください。
+     1>main.cpp(1309): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : 'fopen' の宣言を確認してください。
+     1>main.cpp(1311): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : 'fopen' の宣言を確認してください。
+     1>main.cpp(1665): warning C4244: '引数' : 'double' から 'unsigned __int64' への変換です。データが失われる可能性があります。
+     1>main.cpp(1669): warning C4244: '引数' : 'double' から 'unsigned __int64' への変換です。データが失われる可能性があります。
+     1>main.cpp(1670): warning C4244: '引数' : 'double' から 'unsigned __int64' への変換です。データが失われる可能性があります。
+     1>main.cpp(1671): warning C4244: '引数' : 'double' から 'unsigned __int64' への変換です。データが失われる可能性があります。
+     1>main.cpp(1672): warning C4244: '引数' : 'double' から 'unsigned __int64' への変換です。データが失われる可能性があります。
+     1>main.cpp(2327): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>main.cpp(2416): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>main.cpp(2443): warning C4244: '=' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>main.cpp(3327): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : 'fopen' の宣言を確認してください。
+     1>main.cpp(2782): warning C4101: 'hand_spanX' : ローカル変数は 1 度も使われていません。
+     1>main.cpp(2782): warning C4101: 'hand_spanY' : ローカル変数は 1 度も使われていません。
+     1>main.cpp(2326): warning C4101: 'HumanKinectID' : ローカル変数は 1 度も使われていません。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\administrator\Desktop\AutoPoseTriming\x64\Debug\PoseEstimator.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\dev\opencv-3.1.0\build\x64\vc12\lib" opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\administrator\Desktop\AutoPoseTriming\x64\Debug\PoseEstimator.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\administrator\Desktop\AutoPoseTriming\x64\Debug\PoseEstimator.lib" /MACHINE:X64 x64\Debug\main.obj
+         PoseEstimator.vcxproj -> C:\Users\administrator\Desktop\AutoPoseTriming\x64\Debug\PoseEstimator.exe
+     1>プロジェクト "C:\Users\administrator\Desktop\AutoPoseTriming\PoseEstimator\PoseEstimator.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:04.21
