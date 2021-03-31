@@ -1,0 +1,279 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 (日本) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+    "LANGUAGE 17, 1\r\n"
+    "#pragma code_page(932)\r\n"
+    "#include ""res\\MonitoringSystem.rc2""  // Microsoft Visual C++ 以外で編集されたリソース\r\n"
+    "#include ""afxres.rc""     // 標準コンポーネント\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\MonitoringSystem.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "バージョン情報 MonitoringSystem"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "MonitoringSystem Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_MONITORINGSYSTEM_DIALOG DIALOGEX 0, 0, 767, 575
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MonitoringSystem"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,714,7,46,15
+    PUSHBUTTON      "キャンセル",IDCANCEL,714,25,46,16
+    CONTROL         "",IDC_IMAGE,"Static",SS_BLACKFRAME,18,21,181,158
+    PUSHBUTTON      "ONLINE",IDC_ONLINE,707,57,45,18
+    PUSHBUTTON      "OFFLINE",IDC_OFFLINE,657,57,45,18
+    CONTROL         "",IDC_DIFF,"Static",SS_BLACKFRAME,18,199,180,160
+    GROUPBOX        "Capture",IDC_STATIC,15,10,190,175
+    GROUPBOX        "検出されたシーン（最新3つ）",IDC_OBJECT,409,7,237,386
+    GROUPBOX        "差分画像",IDC_STATIC,15,189,190,175
+    EDITTEXT        IDC_ID1,442,21,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "物体ID：",IDC_STATIC,415,25,26,9
+    LTEXT           "シーン：",IDC_STATIC,483,23,22,10
+    EDITTEXT        IDC_SCENE1,505,21,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "検知時刻：",IDC_STATIC,415,41,33,9
+    EDITTEXT        IDC_TIME1,447,39,50,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_DETECT1,"Static",SS_BLACKFRAME,414,56,181,82
+    LTEXT           "重心：",IDC_CENTER,505,41,19,9
+    EDITTEXT        IDC_POSITION1,523,39,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ID2,442,147,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "物体ID：",IDC_STATIC,415,151,26,9
+    LTEXT           "シーン：",IDC_STATIC,482,149,22,10
+    EDITTEXT        IDC_SCENE2,504,145,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "検知時刻：",IDC_STATIC,415,165,33,9
+    EDITTEXT        IDC_TIME2,447,163,50,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_DETECT2,"Static",SS_BLACKFRAME,414,180,181,82
+    LTEXT           "重心：",IDC_CENTER2,506,165,19,9
+    EDITTEXT        IDC_POSITION2,524,163,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ID3,441,271,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "物体ID：",IDC_STATIC,414,275,26,9
+    LTEXT           "シーン：",IDC_STATIC,481,273,22,10
+    EDITTEXT        IDC_SCENE3,503,269,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "検知時刻：",IDC_STATIC,414,293,33,9
+    EDITTEXT        IDC_TIME3,446,291,50,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_DETECT3,"Static",SS_BLACKFRAME,412,308,181,82
+    LTEXT           "重心：",IDC_CENTER3,507,291,19,9
+    EDITTEXT        IDC_POSITION3,525,289,37,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_LAYER,"Static",SS_BLACKFRAME,219,21,180,160
+    GROUPBOX        "物体情報",IDC_STATIC,214,10,189,176
+    PUSHBUTTON      "前の履歴",IDC_BUTTON1,598,57,45,23
+    PUSHBUTTON      "後の履歴",IDC_BUTTON2,598,85,45,23
+    PUSHBUTTON      "最新履歴",IDC_BUTTON3,598,114,45,23
+    GROUPBOX        "使用カメラ",IDC_STATIC,653,228,96,86
+    CONTROL         "",IDC_CAMERA,"Static",SS_BLACKFRAME,656,238,90,72
+    LTEXT           "fps",IDC_STATIC,54,377,10,8
+    GROUPBOX        "fps",IDC_STATIC,15,367,57,26
+    RTEXT           "",IDC_STATIC_FPS,23,381,29,8,0,WS_EX_RIGHT
+    COMBOBOX        IDC_COMBO2,662,318,86,69,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "mode",IDC_STATIC,650,47,110,34
+    EDITTEXT        IDC_EDIT2,656,107,96,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "フォルダ選択",IDC_BUTTON_SELECTDIR,657,87,45,14
+    CONTROL         "",IDC_THUMNAIL,"Static",SS_BLACKFRAME,655,137,91,79
+    GROUPBOX        "サムネイル",IDC_STATIC,652,129,96,91
+    PUSHBUTTON      "←",IDC_BUTTON4,148,372,18,17
+    PUSHBUTTON      "→",IDC_BUTTON5,186,373,18,15
+    PUSHBUTTON      "←",IDC_BUTTON6,206,373,18,15
+    PUSHBUTTON      "→",IDC_BUTTON7,250,373,18,16
+    GROUPBOX        "",IDC_STATIC,146,365,127,27
+    CTEXT           "移動画像",IDC_STATIC,166,371,20,16
+    CTEXT           "識別ID",IDC_STATIC,225,375,24,11
+    GROUPBOX        "物体候補領域",IDC_STATIC,215,189,190,175
+    CONTROL         "",IDC_ObjectID,"Static",SS_BLACKFRAME,220,200,180,158
+    GROUPBOX        "back_depth",IDC_STATIC,214,395,190,171
+    CONTROL         "",IDC_track,"Static",SS_BLACKFRAME,218,406,182,158
+    GROUPBOX        "depth_data",IDC_Depth,410,396,191,172
+    CONTROL         "",IDC_depth_img,"Static",SS_BLACKFRAME,413,408,184,154
+    GROUPBOX        "skelton",IDC_STATIC,16,395,190,171
+    CONTROL         "",IDC_Skelton,"Static",SS_BLACKFRAME,19,406,181,158
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041103a4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <会社名>"
+            VALUE "FileDescription", "TODO: <ファイルの説明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "MonitoringSystem.exe"
+            VALUE "LegalCopyright", "TODO: (C) <会社名>.  All rights reserved."
+            VALUE "OriginalFilename", "MonitoringSystem.exe"
+            VALUE "ProductName", "TODO: <製品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 932
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_MONITORINGSYSTEM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 760
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 568
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MONITORINGSYSTEM_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO2, 0x403, 23, 0
+0x4a83, 0x8183, 0x8983, 0x2831, 0x3331, 0x2e33, 0x3931, 0x322e, 0x2e32, 
+0x3432, 0x2930, "\000" 
+    IDC_COMBO2, 0x403, 23, 0
+0x4a83, 0x8183, 0x8983, 0x2832, 0x3331, 0x2e33, 0x3931, 0x322e, 0x2e32, 
+0x3332, 0x2939, "\000" 
+    IDC_COMBO2, 0x403, 23, 0
+0x4a83, 0x8183, 0x8983, 0x2833, 0x3331, 0x2e33, 0x3931, 0x322e, 0x2e32, 
+0x3332, 0x2937, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "バージョン情報 MonitoringSystem(&A)..."
+END
+
+#endif    // 日本語 (日本) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE 17, 1
+#pragma code_page(932)
+#include "res\MonitoringSystem.rc2"  // Microsoft Visual C++ 以外で編集されたリソース
+#include "afxres.rc"     // 標準コンポーネント
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

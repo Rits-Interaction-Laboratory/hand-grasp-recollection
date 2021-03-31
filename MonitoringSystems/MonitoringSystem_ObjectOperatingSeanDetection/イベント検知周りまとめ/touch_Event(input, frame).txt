@@ -1,0 +1,103 @@
+void Event::touch_event(image &input,unsigned long frame)//持ち込んだ物体に対する接触判定
+{
+	for(int num=0;num<input.size_t_object_id();num++)		// numを　0から　⇒　input.size_t_object_id()で取得した値まで　検知したobjectの数？　objectの数だけループ
+	{
+		int ox1,ox2,oy1,oy2,cx,cy,dep=15;//物体の両端		　// oxは　objectのx座標という意味？　cxは　center(中心)のx座標という意味？　depは　深度ではなく、object短形の幅？
+		ox1=max(0,input.get_t_object_id(num).x1-dep);		　// ox1は　0(つまり画像左端)と、num番目のobjectのx1から固定値15を引いたもの　の大きい方
+		ox2=min(320,input.get_t_object_id(num).x2+dep);		　// ox2は　320(つまり画像右端)と、num番目のobjectのx2に固定値15を足したもの　の小さい方
+		oy1=max(0,input.get_t_object_id(num).y1-dep);		　// oy1は　0(つまり画像上端)と、num番目のobjectのy1から固定値15を引いたもの　の大きい方
+		oy2=min(240,input.get_t_object_id(num).y2+dep);		　// oy2は　240(つまり画像下端)と、num番目objectのy2から固定値15を足したもの　の小さい方
+		cx=input.get_t_object_id(num).xcenter;			　// cxは　num番目のobjectのxcenter
+		cy=input.get_t_object_id(num).ycenter;			　// cyは　num番目のobjectのycenter
+		int human_max=input.size_t_human_id();			　// human_maxは　input.size_t_humn_id()で取得した値　検知したhumanの数？
+		for(int i=0;i<human_max;i++)				　// iを　0から　⇒　human_maxまで　humanの数だけループ
+		{
+			if(input.get_t_human_id(i).skeletons.size()>0&&input.get_t_human_id(i).kinect_id>0)		// i番目のhumanのskeltonsのsizeが　0超　かつ　i番目のhumanのkinect_idが　0超　なら↓
+			{
+				//int t=input.get_t_human_id(i).skelton;						　// コメントアウト：　tは　i番目のhumanのskelton
+				int x1=input.get_t_human_id(i).skeletons[22].first;					　// x1は　i番目のhumanのskeltonsの22番のfirst　firstはx座標の意味？
+				int y1=input.get_t_human_id(i).skeletons[22].second;					　// y1は　i番目のhumanのskeltonsの22番のfirst　secondはy座標の意味？　つまりskeltons[22](x1, y1)
+				int x2=input.get_t_human_id(i).skeletons[24].first;					　// x2は　i番目のhumanのskeltonsの24番のfirst　firstはx座標の意味？
+				int y2=input.get_t_human_id(i).skeletons[24].second;					　// y2は　i番目のhumanのskeltonsの24番のfirst　secondはy座標の意味？　つまりskeltons[24](x2, y2)
+				float depth_hand_r=input.get_depth(x1,y1);						　// depth_hand_rは　skeltons[22](x1, y1)のdepth(深度)
+				float depth_hand_l=input.get_depth(x2,y2);						　// depth_hand_lは　skeltons[22](x1, y1)のdepth(深度)　rとlってことは[22]右手と[24]左手？
+				float depth_flont_r=input.get_depth_is_diff(x1,y1);					　// depth_flont_rは　input.get_depth_is_diff(x1, y1)　is_diffって何？？ flontは床レイヤー？
+				float depth_flont_l=input.get_depth_is_diff(x2,y2);					　// depth_flont_lは　input.get_depth_is_diff(x2, y2)　is_diffって何？？
+
+				if((ox1<x1&&x1<ox2&&oy1<y1&&y1<oy2)||(ox1<x2&&x2<ox2&&oy1<y2&&y2<oy2))//物体に接触	　// ox1 < x1 ⇒ (ox1, oy1) < (x1, y1) (物体領域左上座標) < (人物右手位置座標)　「　　　　←物体領域左上
+															　// ox2 > x1 　 (ox2, oy2) > (x1, y1) (物体領域右下座標) > (人物右手位置座標)　　　・　　←手位置座標
+															　// oy1 < y1　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   　」←物体領域右下
+															　// oy2 > y1
+																			または
+															　// ox1 < x2
+															　// ox2 > x2
+															　// oy1 < y2 ⇒ (ox1, oy1) < (x2, y2) (物体領域左上座標) < (人物左手位置座標)
+															　// oy2 > y2 　 (ox2, oy2) > (x2, y2) (物体領域右下座標) > (人物左手位置座標)
+				{
+					float diff_1=std::fabs(input.get_depth_is_diff(cx,cy)-input.get_depth(x1,y1));		// diff_1は　物体中心のdepth_is_diff - 右手のdepth　の絶対値　is_diffって何？？←差分検知とか？
+					float diff_2=std::fabs(input.get_depth_is_diff(cx,cy)-input.get_depth(x2,y2));		// diff_2は　物体中心のdepth_is_diff - 左手のdepth　の絶対値　is_diffって何？？
+
+					if(diff_1<450||diff_2<450)								// diff_1 < 450　または　diff_2 < 450　450は接触判定の許容距離？
+					{
+					    	//cout<<"object_touch"<<endl;							　			// 接触したものとして「object_touch」という
+						input.set_t_object_id_touch(num,input.get_t_human_id(i).id,frame);		　			// num番目の物体の　接触情報に　i番目の人物のIDと　現在のフレームを　セット？
+
+						//接触時の画像を用意
+						cv::Mat touch_img=input.img_resize.clone();					　			// touch_imgは　現在のinput.img_resizeの　コピーをとる
+						
+						cv::rectangle(touch_img,cv::Rect(ox1+dep,oy1+dep,ox2-ox1-2*dep,oy2-oy1-2*dep),cv::Scalar(0,0,255));	// 短形描画　左上(ox1+dep, oy1+dep)-右下(ox2-ox1-2*dep, oy2-oy1-2*dep) dep幅分内側
+						stringstream cc;											// ccを宣言
+						cc<<"human_ID:"<<input.get_t_human_id(i).id;								// ccに　「human_ID: [i番目のhumanのID]」を代入
+						cv::putText(touch_img, cc.str(),cv::Point(10,20) /*cv::Point(50,50)*/, cv::FONT_HERSHEY_SIMPLEX
+								, 0.7, cv::Scalar(255,0,0), 2, CV_AA);     						// touch_imgに　ccの文字列内容を　位置(10,20)に　赤で印字
+						imshow("lv_2_touch_obj",touch_img);									// 「lv_2_touch_obj」という名前でtouch_imgを　画像表示						
+						char filenameRGB[256];  //TODO: かかった時間　およそ0.08秒　ぶれがひどい				// ファイル名
+						sprintf_s(filenameRGB,"../DB/Human-DB/touch/%d-t-%08lu.png",input.get_t_human_id(i).id,frame);		// ../DB/Human-DB/touch/[i番目の人物ID]-t-[フレーム番号].png
+						cv::imwrite(string(filenameRGB), touch_img);								// ↑に　touch_imgを　書き込み
+						FILE *fl3;//物体が入る											// FILEポインタ　fl3
+						fopen_s(&fl3,"../DB/Human-DB/touch/touch.log","a");							// ../DB/Human-DB/touch/touch.logを　追加で　ファイルオープン
+						fprintf(fl3,"%d t %d %d\n",input.get_t_human_id(i).id,input.get_t_object_id(num).model_id,frame);	// [i番目人物ID] t [num番目物体モデルID] [フレーム番号]\n　モデルID？
+						fclose(fl3);												// ファイルクローズ
+
+
+						PII a(input.get_t_human_id(i).id,input.get_t_object_id(num).model_id);					// i番目の人物IDと　num番目の物体モデルIDの　ペアaを宣言
+						input.set_n_event_state_L5_t(a);									// input.set_n_event_state_L5_t(a)　aをレベル5として　セット？
+					}
+				}
+				else if( 
+					  ( 
+					  	( fabs( depth_hand_l-depth_flont_l ) < 100 && input.get_obj_mask( x2, y2 ) == 255 )		// 左手depthと左手位置床depthの差が100未満　かつ　マスク画像の左手位置が検知領域外
+					   	||												// または
+					  	( fabs( depth_hand_r-depth_flont_r ) < 100 && input.get_obj_mask( x1, y1 ) == 255 )		// 右手depthと右手位置床depthの差が100未満
+					  )
+					  &&													// ↑かつ
+					  input.get_t_human_id_have_obj_size(i) > 0 								// i番目人物の把持動作が1回以上あった
+				       )													//空間内に物を隠した場合がある
+
+				{//壁に接触
+					//cout<<"wall_touch"<<endl;										// 「wall_touch」
+					cv::Mat touch_img=input.img_resize.clone();								// touch_imgは　現在のinput.img_resizeの　コピーをとる
+					//cv::rectangle(touch_img,cv::Rect(x1,y1,x2,y2),cv::Scalar(0,0,255));					// コメントアウト: 矩形描画　touch_imgに　右手と左手の間の空間(x1,y1)-(x2,y2)
+					cv::circle(touch_img, cv::Point(x1,y1),1, cv::Scalar(255,0,255), 5, 4);					// 円描画　右手位置を中心に　半径1　マゼンタ　太さ5　4連結　
+					cv::circle(touch_img, cv::Point(x2,y2),1, cv::Scalar(255,0,255), 5, 4);					// 円描画　左手位置を中心に　同上
+					stringstream cc;											// cc
+					cc<<"Hide_object:"<<input.get_t_human_id(i).have_obj[0].first;						// ccに　「Hide_object: [i番目のhumanが把持しているオブジェクト0番のfirst]」を代入
+					cv::putText(touch_img, cc.str(),cv::Point(10,20) /*cv::Point(50,50)*/, cv::FONT_HERSHEY_SIMPLEX
+							, 0.7, cv::Scalar(255,0,0), 2, CV_AA);     						// touch_imgに　ccの文字列内容を　位置(10,20)に　赤で印字
+					//imshow("Lv_5:Event",touch_img);									// コメントアウト:　「Lv_5:Event」という名前でtouch_imgを　画像表示
+
+					char filenameRGB[256];  //TODO: かかった時間　およそ0.08秒　ぶれがひどい				// ファイル名
+					sprintf_s(filenameRGB,"../DB/HI-Event-DB/%d-tw-%08lu.png",input.get_t_human_id(i).id,frame);		// ../DB/HI-Event-DB/[i番目の人物ID]-tw-[フレーム番号].png
+					cv::imwrite(string(filenameRGB), touch_img);								// ↑に　touch_imgを　書き込み
+
+					//input.set_n_event_state_L5(PII(1,input.get_t_human_id(i).id),input.get_t_object_id(i).hide_obj[0]);	// コメントアウト: input.set_n_event_state_L5　1とi番目humanIDのペア、i番目物体のhide_obj[0]
+
+					FILE *fl;//物体が入る											// FILEポインタ　fl
+					fopen_s(&fl,"../DB/HI-Event-DB/Event.log","a");								// ../DB/HI-Event-DB/Event.logを　追加で　ファイルオープン
+					fprintf(fl,"%d h %d %d\n",frame,input.get_t_human_id(i).id,input.get_t_human_id(i).have_obj[0].first);	// [フレーム番号] h [i番目人物ID] [i番目の人物が把持しているオブジェクト0番のfirst]\n
+					fclose(fl);												// ファイルクローズ
+				}
+			}
+		}	
+	}
+}

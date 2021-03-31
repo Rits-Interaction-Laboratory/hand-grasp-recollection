@@ -1,0 +1,349 @@
+void Edit::depth_M_estimator(image &input)
+{
+	static bool bInitialized = false;	
+	/*static GLuint depthTexID;
+	static GLuint depthTexIDCurrent;*/
+	static unsigned char* pDepthTexBuf;
+	static unsigned char* pDepthTexBufCurrent;
+	static int texWidth, texHeight;
+	static cv::Mat pastdepth[FLAME_PAST_DEPTH];
+	static int frame=0;
+	//static cv::vector<cv::Mat> pastImages;
+	static  double  sumDepth[320*240]={0};
+	static int sumAveCount[320*240] = {0};
+	static int sumSdev[320*240]={0};
+	static int pixelFlameCount[320*240]={0};
+	static int depthCount[320*240]={0};
+	static  double  sigmaDepth[320*240]={0};
+	static  double sigmaDepthSquare[320*240]={0};
+	static  double averageDepth[320*240]={0};
+	static  double variance[320*240]={0};
+	//static /*XnLabel*/int sceneData[320*240]={0};
+	static vector<double> pastDepth[FLAME_NUM];
+	//static cv::Mat flameCountImage(240,320,CV_8UC1,cv::Scalar::all(0));
+	/*static cv::Mat deviationImage(240,320,CV_8UC3);*/
+	static cv::Mat binaryImage(240,320,CV_8UC1,cv::Scalar::all(0));
+	/*static cv::Mat diffImage(240,320,CV_8UC1,cv::Scalar::all(0));
+	static cv::Mat rgbImage(240, 320, CV_8UC3);*/
+	static  double g_pCountHist[FLAME_NUM];
+	double topLeftX;
+	double topLeftY;
+	double bottomRightY;
+	double bottomRightX;
+	double texXpos;	
+	double texYpos;
+	int personNum;
+
+	char personStr[3] = "";
+	char detectData[64*4] = "";
+
+	int cols=input.getwidth();
+	int rows=input.getheight();
+
+	if(!bInitialized)
+	{
+		input.set_depth_is_diff_size(320,240);
+		bInitialized = true;
+		for(int i=0;i<FLAME_PAST_DEPTH;i++)pastdepth[i] = cvCreateMat(240, 320, CV_64FC3);
+		/*for(int j=0; j< input.Height(); j++){
+			for(int i=0; i<input.Width(); i++){
+				input.get_bring_object_data().at<float>(j,i)=input.get_depth(i,j);
+			}
+		}*/
+	}
+
+	int currentImd = frame % FLAME_PAST_DEPTH;
+
+	input.depth_copyTo(pastdepth[currentImd]);
+
+
+	//pastImages.push_back(pastdepth[currentImd].clone());
+	// pixelFlameCount[]各ピクセルに使用分のフレームのdepth情報を保存
+	//指定フレーム数のdepth情報を保存
+	if (frame < FLAME_NUM) 
+	{
+		int num=0;
+
+
+		for (int y=0; y<rows; y++) {
+			for (int x=0; x<cols; x++) {
+				num = pixelFlameCount[y*input.Width()+x] % FLAME_NUM;
+				double currentAverageDepth=0.0,currentVariance=0.0;
+
+				int currentPoint = y*input.Width()+x;
+				//sceneData[currentPoint] = smd.Data()[currentPoint];
+				//人物領域内の場合
+				if (input.get_human_id(x,y)>0) {//SceneMetaDataー＞人物データ
+					pastDepth[num].push_back(0);
+				}
+				//人物領域外の場合
+				else {
+					pastDepth[num].push_back((double)input.get_depth(x,y));
+				}
+
+
+				//累計の平均値と分散を求める為の値を取得
+				if (input.get_depth(x,y)>0) {//DepthMetaData->実距離データ
+
+					sigmaDepth[currentPoint] += (double)input.get_depth(x,y);
+					sigmaDepthSquare[currentPoint] += pow((double)input.get_depth(x,y),2.0);
+
+					sumDepth[currentPoint] += (double)input.get_depth(x,y);
+					sumAveCount[currentPoint] +=1;
+
+					sumSdev[currentPoint] += ((double)input.get_depth(x,y)-sumDepth[currentPoint]/(double)sumAveCount[currentPoint] )*((double)input.get_depth(x,y)-sumDepth[currentPoint]/(double)sumAveCount[currentPoint] );
+				}
+
+				currentAverageDepth = (double)sigmaDepth[currentPoint] / (double)sumAveCount[currentPoint] ;
+				currentVariance = (double)sigmaDepthSquare[currentPoint]/(double)sumAveCount[currentPoint] - pow((double)(sigmaDepth[currentPoint]/(double)sumAveCount[currentPoint]),2.0);
+
+				averageDepth[currentPoint] =currentAverageDepth;
+
+				input.set_depth_is_diff(x,y,(float)currentAverageDepth);
+
+				double currentSD = sqrt(currentVariance);
+				if(currentSD < VALUE)
+					currentSD = VALUE;
+				variance[currentPoint] = currentSD*10;
+
+				/*
+				variance[currentPoint] = sqrt(pow(((double)sigmaDepth[currentPoint]/(double)sumAveCount[currentPoint]),2.0));
+				*/
+				//flameCountImage.data[currentPoint] = g_pCountHist[sumAveCount[currentPoint]];
+
+				pixelFlameCount[y*input.Width()+x] +=1;
+			}
+		}        
+	}      
+	//最新一定フレーム全てのデータを持っている場合
+	else {
+
+		int num = 0;
+
+		/*
+		num = flameCount % FLAME_NUM;
+		*/
+		for (int row=0; row<rows; row++) {
+			for (int col=0; col<cols; col++) {
+
+				int currentPoint = row*cols+col;//配列
+				double currentDepth = (double)input.get_depth(col,row);
+				if(currentDepth<0){currentDepth=0;}
+				/*else if(currentDepth>=4000)
+				{
+				currentDepth=4000;
+				}*/
+				//sceneData[currentPoint] = smd.Data()[currentPoint];
+
+				double currentAverageDepth = 0.0;//平均深度
+				double currentVariance = 0.0;//分散
+				num = pixelFlameCount[currentPoint] % FLAME_NUM;
+				pixelFlameCount[currentPoint] +=1;
+				double pastAverageDepth = sigmaDepth[currentPoint] / (double)sumAveCount[currentPoint] ;
+				double pastVariance = sigmaDepthSquare[currentPoint]/sumAveCount[currentPoint] - pow(((double)sigmaDepth[currentPoint]/(double)sumAveCount[currentPoint]),2.0);
+				double pastSD = sqrt(pastVariance);
+
+
+				//イベント検知で距離が更新された部分は更新された時の距離データを挿入
+				if((int)input.get_depth_is_diff_d(col,row)==1)//持ち去り更新
+				{
+					double back_pastAverageDepth=pastAverageDepth;
+
+					sumAveCount[currentPoint]=0;//=FLAME_NUM;
+					sigmaDepthSquare[currentPoint]=0;//sigmaDepthSquare[currentPoint]-sumAveCount[currentPoint]*pow(((double)sigmaDepth[currentPoint]/(double)sumAveCount[currentPoint]),2.0)+sumAveCount[currentPoint]*pow(((double)input.get_depth_is_diff(col,row)),2.0);
+					sigmaDepth[currentPoint]=0;//(double)input.get_depth_is_diff(col,row)*sumAveCount[currentPoint];
+
+					pastAverageDepth = ((double)input.get_depth_is_diff(col,row));//*sumAveCount[currentPoint]) / (double)sumAveCount[currentPoint] ;
+
+					for(int i=0;i<FLAME_NUM;i++)
+					{
+						if(pastDepth[i][currentPoint] !=0)
+						{
+							pastDepth[i][currentPoint]=pastDepth[i][currentPoint]+(pastAverageDepth-back_pastAverageDepth);//sqrt((double)sigmaDepthSquare[currentPoint]/FLAME_NUM);
+							sigmaDepthSquare[currentPoint]+=pow((double)pastDepth[i][currentPoint],2.0) ;
+							sigmaDepth[currentPoint]+=pastDepth[i][currentPoint];
+							sumAveCount[currentPoint]++;
+
+						}
+					}
+					if(sumAveCount[currentPoint]>0){
+						pastVariance = sigmaDepthSquare[currentPoint]/sumAveCount[currentPoint] -(double)( pow(((double)sigmaDepth[currentPoint]/(double)sumAveCount[currentPoint]),2.0));
+					}
+				}
+
+				//背景更新
+
+				if((int)input.get_human_id(col,row)==0&&currentDepth>0&&input.get_mask(col,row)!=0&&input.get_mask(col,row)!=125)
+				{
+					//if (currentDepth>0) {
+
+					//最古のフレームのデプスが０以上
+					if (pastDepth[num][currentPoint] >0&&sumAveCount[currentPoint]>0) 
+					{
+						if(pastDepth[num][currentPoint]>DEPTH_RANGE_MAX)
+						{
+							//pastDepth[num][currentPoint]= DEPTH_RANGE_MAX;
+						}
+						double past_sub=pastDepth[num][currentPoint]-0.3*(pastDepth[num][currentPoint]-currentDepth);
+						sigmaDepth[currentPoint] = sigmaDepth[currentPoint] + (double)past_sub- (double)pastDepth[num][currentPoint];
+						sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +((double)( pow(past_sub,2.0)) -(double) ( pow((double)pastDepth[num][currentPoint],2.0)));
+						pastDepth[num][currentPoint]=past_sub;
+
+					}
+					else if(sumAveCount[currentPoint] <FLAME_NUM) 
+					{
+						if(pastDepth[num][currentPoint] <=0)
+							pastDepth[num][currentPoint]=0;
+
+
+						if(sumAveCount[currentPoint]>0/*&&sumAveCount[currentPoint]<10*/)
+						{
+							if(pastDepth[num][currentPoint] >0)//微小更新を行う
+							{
+								double past_sub=pastDepth[num][currentPoint];
+								pastDepth[num][currentPoint]=pastDepth[num][currentPoint]-0.08*(pastDepth[num][currentPoint]-currentDepth);
+								sigmaDepth[currentPoint] = sigmaDepth[currentPoint] + (double)pastDepth[num][currentPoint]-past_sub;
+								sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +(double)( pow(pastDepth[num][currentPoint],2.0)) -(double) ( pow(past_sub,2.0));
+							}
+							else//超微小更新を行う
+							{
+								sigmaDepth[currentPoint] = sigmaDepth[currentPoint] +0.008*(double)currentDepth;
+								sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +(double) pow(0.008*currentDepth,2.0);
+								sumAveCount[currentPoint]+=1;
+								pastDepth[num][currentPoint]=0.008*currentDepth;
+							}
+						}
+						else
+						{
+							sigmaDepth[currentPoint] = sigmaDepth[currentPoint] +0.1*(double)currentDepth;
+							sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +(double) pow(0.1*currentDepth,2.0);
+							sumAveCount[currentPoint]+=1;
+							pastDepth[num][currentPoint]=0.1*currentDepth;	
+						}
+					}
+
+					//}
+				}
+				else if((input.get_mask(col,row)==0||input.get_mask(col,row)==125||(int)input.get_human_id(col,row)>0)&&currentDepth>0)//マスク0の時物体か人物がいる可能性がある場所
+				{  
+					if((int)input.get_human_id(col,row)>0)
+					{
+
+					}
+					else if(input.get_mask(col,row)==125)//物体候補領域
+					{
+					}
+					else if(input.get_mask(col,row)==0)//人物候補領域
+					{
+						double past_sub=pastDepth[num][currentPoint]-0.001*(pastDepth[num][currentPoint]-currentDepth);
+						sigmaDepth[currentPoint] = sigmaDepth[currentPoint] + (double)past_sub- (double)pastDepth[num][currentPoint];
+						sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +((double)( pow(past_sub,2.0)) -(double) ( pow((double)pastDepth[num][currentPoint],2.0)));
+						pastDepth[num][currentPoint]=past_sub;
+					}
+					else if (pastDepth[num][currentPoint] >0) 
+					{
+						double past_sub=pastDepth[num][currentPoint];
+						pastDepth[num][currentPoint]=pastDepth[num][currentPoint]-0.001*(pastDepth[num][currentPoint]-currentDepth);
+						sigmaDepth[currentPoint] = sigmaDepth[currentPoint] + (double)pastDepth[num][currentPoint]-past_sub;
+						sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +(double)( pow(pastDepth[num][currentPoint],2.0)) -(double) ( pow(past_sub,2.0));
+					}
+					else if(pastDepth[num][currentPoint] ==0)
+					{
+
+						double past_sub=pastDepth[num][currentPoint];
+						pastDepth[num][currentPoint]=pastDepth[num][currentPoint]-0.001*(pastDepth[num][currentPoint]-currentDepth);
+						sigmaDepth[currentPoint] = sigmaDepth[currentPoint] + (double)pastDepth[num][currentPoint]-past_sub;
+						sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] +(double)( pow(pastDepth[num][currentPoint],2.0)) -(double) ( pow(past_sub,2.0));
+						sumAveCount[currentPoint]+=1;
+					}
+				}
+				else
+				{
+
+					if(currentDepth==0&&pastDepth[num][currentPoint] >0&&sumAveCount[currentPoint]>0)
+					{
+
+						sigmaDepth[currentPoint] = sigmaDepth[currentPoint] - 0.01*pastDepth[num][currentPoint];
+						sigmaDepthSquare[currentPoint] = sigmaDepthSquare[currentPoint] - pow(pastDepth[num][currentPoint],2.0)+pow(0.99*pastDepth[num][currentPoint],2.0);                            
+						//sumAveCount[currentPoint]-=1;
+						pastDepth[num][currentPoint]=0.99*pastDepth[num][currentPoint];
+
+					}
+				}
+
+				//人物領域外の場合
+
+				if (sumAveCount[currentPoint] == 0) {
+					currentAverageDepth = 0.0;
+					currentVariance = 0.0;
+				}
+				else{
+					currentAverageDepth = sigmaDepth[currentPoint] / sumAveCount[currentPoint] ;
+					currentVariance = fabs((double)(sigmaDepthSquare[currentPoint]/sumAveCount[currentPoint] - (double)pow((double)(sigmaDepth[currentPoint]/sumAveCount[currentPoint]),2.0)));
+				}
+				//if(120*input.Width()+180){ cout<<"自乗深度"<< currentVariance<<endl;}
+				//変数名の統一
+				averageDepth[currentPoint] = currentAverageDepth;
+
+				input.set_depth_is_diff(col,row,(float)currentAverageDepth);
+				//input.set_depth_is_diff(col,row,(float)currentDepth);
+				double currentSD = sqrt(currentVariance);
+				if(currentSD < VALUE)
+					currentSD =VALUE;// VALUE;
+				else if(currentSD >=50)//100)
+				{
+					currentSD=50;//100;
+				}
+
+				//variance[currentPoint] = currentSD*10;                                
+				cv::Vec3b pixel_DevValue;
+
+				if(sumAveCount[currentPoint]>FLAME_NUM)
+				{
+					cout<<sumAveCount[currentPoint];
+				}
+
+				if(currentSD>4000||currentSD<0||currentAverageDepth<0||currentVariance<0 )
+				{
+					cout<<"偏差"<<currentSD<<endl;
+					cout<<"深度"<<currentAverageDepth<<endl;
+					cout<<"自乗深度"<< currentVariance<<endl;
+				}
+
+				//指定の差分以上の場合と、人体が入っていない場合と、指定の分散以内の場合にピクセルを白色に変更
+				if (sumAveCount[row*input.Width()+col]>10 && fabs(currentAverageDepth- (double)input.get_depth(col,row)) >= 5&&(int)input.get_human_id(col,row)==0  && ((double)input.get_depth(col,row) >/*2.0*/1* currentSD + currentAverageDepth ||(double) input.get_depth(col,row) < currentAverageDepth -/*2.0*/1*currentSD   ) && (double)input.get_depth(col,row)!=0)
+				{    
+					cv::Vec3b pixel_value;  
+					pixel_value.val[0]=255;
+					pixel_value.val[1]=255;
+					pixel_value.val[2]=255;   
+					input.depth_Out().at<cv::Vec3b>(row,col)=pixel_value;
+					//binaryImage.data[currentPoint] = 255;
+					set_depth_isDiff(col,row,BACK); //= BACK;
+
+				}
+				else {
+					cv::Vec3b pixel_value;
+					pixel_value.val[0]=0;
+					pixel_value.val[1]=0;
+					if((int)input.get_human_id(col,row)!=0)
+						pixel_value.val[2]=255;
+					else
+						pixel_value.val[2]=0;
+
+
+					/*
+					Image.at<cv::Vec3b>(y,x)=pixel_value;     */ 
+					input.depth_Out().at<cv::Vec3b>(row,col)=pixel_value;
+					//binaryImage.data[currentPoint] = 0;
+					set_depth_isDiff(col,row,NON);// = NON;
+				}
+
+				input.set_depth_is_diff_d(col,row,0);
+				input.set_mask(col,row,255);
+			}
+		}
+	}
+
+	frame++;
+}
