@@ -1,0 +1,116 @@
+int humansize_min=1600;//人物領域
+int humansize_max=30000;
+int human_max=10;//最大検知数
+//--------------------------------------------------
+// Name     : HumanSearch
+// Author　 : kawamoto(cv_)
+// Update   : 2013.3.30
+// Function : 人物認識
+// Argument : int型のフレーム数,imageクラス
+// return   : int型の変数
+//--------------------------------------------------
+bool human::HumanSearch(unsigned long frame,image &input)
+{
+
+	Hset();//人物初期化
+
+
+	static bool Humanflag=false;//前のフレーム
+	//std::map<int,int>human_id_data;
+	int kinect_num=0;
+	int num=0;
+
+	input.HumanTabReset();//初期化
+	input.Human_label_clear();
+
+
+	if(input.set_skeltons().size())		→ スケルトン情報が存在していたら
+	{
+
+		int MAX=0;
+		bool human_flag=false;					→ human_flag を消す
+		std::map<int,int>id_data;
+		id_data.clear();
+		for(int j=0;j<input.Height();j++){
+			for(int i=0;i<input.Width();i++){
+				if(input.get_human_id(i,j)>0)		→ human_id が 0 より大きい画素がきたら、つまり人が写っている部分の画素がきたら
+				{
+					human_flag=false;		→ もう一度 human_flag を消す
+					for(int t=0;t<MAX;t++)		→ 0からMAX(初期値0)まで(最初はループ入らない)、
+					{
+						if(input.get_human_id(i,j)==id_data[t])//登録された物体の一部
+						{
+							if(input.get_HumanTab_e_w(t+num+1)<i)input.set_HumanTab_e_w(t+num+1,i);
+							if(input.get_HumanTab_s_w(t+num+1)>i)input.set_HumanTab_s_w(t+num+1,i);
+							if(input.get_HumanTab_e_h(t+num+1)<j)input.set_HumanTab_e_h(t+num+1,j);
+							//if(input.get_HumanTab_s_h(t+num+1)<j)input.set_HumanTab_s_h(t+num+1,j);
+							input.set_HumanTab_size(t+num+1,(input.get_HumanTab_size(t+num+1))+1);
+							input.set_HumanTab_cx(t+num+1,input.get_HumanTab_cx(t+num+1)+i);
+							input.set_HumanTab_cy(t+num+1,input.get_HumanTab_cy(t+num+1)+j);
+							input.set_Human_label(i,j,t+num+1);//
+							input.set_mask(i,j,0);
+							t=MAX+1;
+							human_flag=true;
+						}
+					}
+					if(!human_flag&&(num+MAX)<human_max)//新規物体		→ human_flag == false, num(初期値0)+MAX(初期値0) が human_max(最高10人まで) より小さいとき
+					{	
+						kinect_num++;					→ kinect_num をインクリメント
+						input.set_HumanTab_s_w(num+kinect_num,i);	→ num + kinect_num 番目の human_id の x1 に i を代入
+						input.set_HumanTab_s_h(num+kinect_num,j);	→ num + kinect_num 番目の human_id の y1 に j を代入
+						input.set_HumanTab_e_w(num+kinect_num,i);	→ num + kinect_num 番目の human_id の x2 に i を代入
+						input.set_HumanTab_e_h(num+kinect_num,j);	→ num + kinect_num 番目の human_id の x1 に j を代入
+						input.set_HumanTab_size(num+kinect_num,1);	→ num + kinect_num 番目の human_id の size に 1 を代入
+						input.set_HumanTab_cx(num+kinect_num,i);	→ num + kinect_num 番目の human_id の xcenter に i を代入
+						input.set_HumanTab_cy(num+kinect_num,j);	→ num + kinect_num 番目の human_id の ycenter に j を代入
+
+						input.set_HumanTab_ID(num+kinect_num,num+kinect_num);//同一人物認識   *そのうち作成する予定	→ num + kinect_num 番目の human_id の id に num + kinect_num を代入
+						input.set_HumanTab_frame(num+kinect_num,(int)frame);//						→ num + kinect_num 番目の human_id の frame に frame を代入
+						id_data.insert(std::pair<int,int>(MAX,input.get_human_id(i,j)));				→ map<int, int> id_data に MAX(初期値0), get_human_id(i, j) のペア値を挿入			
+						input.set_Human_label(i,j,num+kinect_num);//							→ Human_label.data[Human_label.step * j + Human_label.elemSize() * i] = num + kinect_num
+						input.set_HumanTab_skelton(num+kinect_num,MAX,input.get_human_id(i,j));				→ 
+						input.set_HumanTab_kinect(num+kinect_num,input.get_human_id(i,j));
+						input.set_mask(i,j,0);
+						MAX++;
+					}
+				}
+			}
+		}
+
+		for(int t=0;t<MAX;t++)
+		{
+
+			input.set_HumanTab_cx(t+num+1,input.get_HumanTab_cx(t+num+1)/input.get_HumanTab_size(t+num+1));
+			input.set_HumanTab_cy(t+num+1,input.get_HumanTab_cy(t+num+1)/input.get_HumanTab_size(t+num+1));
+
+			//cout<<"cx,cy:"<<input.get_HumanTab_cx(t+num+1)<<","<<input.get_HumanTab_cy(t+num+1)<<endl;
+			human_table[t+num+1].x1=input.get_HumanTab_s_w(t+num+1);
+			human_table[t+num+1].x2=input.get_HumanTab_e_w(t+num+1);
+			human_table[t+num+1].y1=input.get_HumanTab_s_h(t+num+1);
+			human_table[t+num+1].y2=input.get_HumanTab_e_h(t+num+1);
+			human_table[t+num+1].xcenter=input.get_HumanTab_cx(t+num+1);
+			human_table[t+num+1].ycenter=input.get_HumanTab_cy(t+num+1);
+			human_table[t+num+1].size=input.get_HumanTab_size(t+num+1);
+			human_table[t+num+1].frame=(int)frame;
+			human_table[t+num+1].ID=(int)0;//input.get_HumanTab_ID(id_data[t]);
+			Humanflag=true;
+			/*if(humansize_min>input.get_HumanTab_size(t+num+1))
+			{
+			humansize_min=input.get_HumanTab_size(t+num+1);
+			}*/
+		}
+		input.set_log_skelton_data(frame);
+	}
+
+	HtabMAX(num+kinect_num);//検知された人数
+	input.HumantabMAX(num+kinect_num);//検知された人物候補数
+
+	//d_human_maching(input,frame);//LV3人物追跡
+
+	if(Humanflag)BinaryImgLabeling(input);//出力画像データに描画
+
+	Hreleace();
+
+	if(num==0&&kinect_num==0){Humanflag=false;}//人物が検知された
+	return Humanflag;
+}

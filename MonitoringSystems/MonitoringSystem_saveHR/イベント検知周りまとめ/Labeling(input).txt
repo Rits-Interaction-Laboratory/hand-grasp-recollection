@@ -1,0 +1,188 @@
+//--------------------------------------------------
+// Name     : void image::Labeling()
+// Author　 : Katayama Noriaki (CV-lab.)
+// Update   : 2006.3.17
+// function : ２値画像のラベリング処理
+// Argument : なし
+// return   : なし
+//--------------------------------------------------
+
+
+void Edit::Labeling(image &input)
+{
+	input.STableReset();
+	label Label;
+
+	cv::Mat test=cv::Mat(cv::Size(320, 240), CV_32FC3,cv::Scalar(0,0,0));
+	//cv::Mat test1=cv::Mat(cv::Size(320, 240), CV_8UC1,cv::Scalar(0));
+	//ラベル設定
+	Label.setArea(input.getwidth(),input.getheight());
+
+	//初期化
+	Label.init();
+	int *new_label;
+
+	//差分画素のみラベリングするため座標をセット//探索領域
+	//for(int j=0; j<imageHeight; j++){
+	//	for(int i=0; i<imageWidth; i++){
+	for(int j=input.area_s_h(); j<input.area_e_h(); j++)
+	{
+		for(int i=input.area_s_w(); i<input.area_e_w(); i++)
+		{
+			if(get_isDiff(i,j) == BACK) 
+			{
+				Label.setPoint(i,j);
+				input.set_subtraction_B(i,j,255);
+				input.set_subtraction_G(i,j,255); 
+				input.set_subtraction_R(i,j,255);
+			}//差分のある場所に－1を代入
+			else {Label.getPoint(i,j)=0;}
+		}
+	}
+
+
+	//ラベリング(再帰処理)
+	Label.Labeling();
+
+	//#########################################################
+	//ここからラベル表示部分
+
+	//各ラベル番号をゲット
+	//std::vector<int> min_label   = Label.getminLabel();//小さいラベル
+	//std::vector<int> large_label = Label.getlargeLabel();//人物領域
+
+
+	//int obj_num = Label.getLargestObjLabel(obj_label);//物体候補領域のなかで最も大きい領域
+	//int h_num = Label.getLargestObjLabel(large_label);//人物領域のなかで最も大きい領域
+	//int object_sh = d_area.s_w;//物体検知領域
+	//int object_sw = d_area.s_h;
+	//int object_eh = d_area.e_w;
+	//int object_ew = d_area.e_h;
+
+	std::vector<int> obj_label;
+	//obj_label.reserve(100);
+	obj_label= Label.getobjLabel();//人物・物体候補領域(obj_label内には処理で使われた番号が入っている)
+
+	//同一領域（とみなす）でラベルを付ける
+	/*if(obj_label.size() != 0){*/
+	new_label = new int[obj_label.size()];
+	//OTable = new OBJDATA[obj_label.size()];
+	/*}*/
+
+	int new_objnum = 0; //新しい物体のラベル数
+	int tmp_num =0;
+	bool check = false;
+
+	for(std::vector<int>::iterator it = obj_label.begin();it != obj_label.end();++it)
+	{
+		if(obj_label.size() == 0)	break;//ラベルがない場合は終了
+
+		for(int i=0;i<new_objnum;i++)
+		{//新しいオブジェクトと同一のものかを調べる
+			//重心の距離求める
+			int nx,ny,ox,oy;
+			//Label.getGravityCenter(new_label[i],nx,ny);
+			nx = input.get_STable_cx(new_label[i]);	 
+			ny = input.get_STable_cy(new_label[i]);
+			Label.getGravityCenter(*it,ox,oy);
+			int dist = sqrt((double)((nx-ox)*(nx-ox)+(ny-oy)*(ny-oy)));
+			// if(dist<100){  //同一物体とする
+			if (dist<30){  //同一物体とする
+				//if(OTable[i].size >= (Label.getLabelSize(*it))){
+				new_label[tmp_num] =new_label[i]; //i->new_label[i];
+				//面積、重心、外接長方形を更新する
+				int tmp_size = input.get_STable_size(new_label[i]) + Label.getLabelSize(*it);
+
+				input.set_STable_cx(new_label[i],((ox*Label.getLabelSize(*it))+(nx*input.get_STable_size(new_label[i]))) / (tmp_size)) ; //重心
+				input.set_STable_cy(new_label[i],((oy*Label.getLabelSize(*it))+(ny*input.get_STable_size(new_label[i]))) / (tmp_size)) ;
+
+				input.set_STable_size(new_label[i],tmp_size);  //面積
+
+				int x1,x2,y1,y2;
+				Label.getLabelArea(*it,x1,x2,y1,y2);
+				if(input.get_STable_s_w(new_label[i]) > x1)	input.set_STable_s_w(new_label[i],x1) ;
+				if(input.get_STable_e_w(new_label[i]) < x2)	input.set_STable_e_w(new_label[i],x2) ;
+				if(input.get_STable_s_h(new_label[i]) > y1)	input.set_STable_s_h(new_label[i],y1) ;
+				if(input.get_STable_e_h(new_label[i]) < y2)	input.set_STable_e_h(new_label[i],y2) ;
+
+				check = true; //ラベル情報を格納したか
+				i=new_objnum; //合体させたら終わらす。
+				//}
+
+
+			}
+
+
+		}
+
+		if(check == false)
+		{
+			new_label[tmp_num] = new_objnum;  /**it;*/							//新しいラベルと古いラベルの対応
+			input.set_STable_size(new_objnum, Label.getLabelSize(*it));			  //ラベル情報更新（面積）
+			int x1,x2,y1,y2,cy,cx;
+			Label.getLabelArea(*it,x1,x2,y1,y2);
+			input.set_STable_s_w(new_objnum,x1);	input.set_STable_e_w(new_objnum,x2);//ラベル情報更新（外接長方形）
+			input.set_STable_s_h(new_objnum,y1);	input.set_STable_e_h(new_objnum,y2);
+			Label.getGravityCenter(*it,cx,cy);
+			input.set_STable_cx(new_objnum,cx);										  //ラベル情報更新（重心）
+			input.set_STable_cy(new_objnum,cy);
+
+			new_objnum++;		//ラベル数をカウント
+		}
+		check = false;
+		tmp_num++;
+
+	}//for(std::vector<int>::iterator it = obj_label.begin();it != obj_label.end();++it){
+
+
+
+
+	input.LabelMAX(new_objnum);
+
+	bool no_label=false;
+
+	//物体・人物候補領域ラベル付
+	for(int j=0; j<input.Height(); j++)
+	{
+		for(int i=0; i<input.Width(); i++)
+		{
+			int sel_num = Label.getPoint(i,j);//ラベルは1以上　0は何もない場所
+
+			input.set_Sub_label(i,j,-1);
+
+			if(sel_num==0){input.set_Sub_label(i,j,-1);}//差分のない領域には-1を代入
+			else
+			{
+				for(int t=0;t<(int)obj_label.size();t++)
+				{
+					if(obj_label[t]==sel_num)
+					{
+						input.set_Sub_label(i,j,new_label[t]);
+						no_label=true;
+					}
+				}
+				if(!no_label){input.set_Sub_label(i,j,-1);}
+			}
+			no_label=false;
+		}
+	}
+	/*for(int t=0; t<new_objnum; t++)
+	{
+	CvFont dfont;
+	stringstream ss;
+	ss<<t;
+	cv::putText(test, ss.str(),cv::Point(input.STable_s_w(t),input.STable_s_h(t)), 0, 1.2, cv::Scalar(0,255,0), 2, CV_AA);
+	cv::rectangle(test,cv::Rect(input.STable_s_w(t),input.STable_s_h(t),input.STable_e_w(t)-input.STable_s_w(t),input.STable_e_h(t)-input.STable_s_h(t)),cv::Scalar(0,255,255));
+	for(int j=0; j<input.Height(); j++)
+	{
+	for(int i=0; i<input.Width(); i++)
+	{
+	if(input.Slabel(i,j)==t){((cv::Point3f*)(test.data+  test.step.p[0]*j))[i].x=255;}	
+	}
+	}
+	cv::imshow("label",test);
+	cv::waitKey(1);
+	}*/
+	obj_label.clear();
+	delete [] new_label;//kawa
+}

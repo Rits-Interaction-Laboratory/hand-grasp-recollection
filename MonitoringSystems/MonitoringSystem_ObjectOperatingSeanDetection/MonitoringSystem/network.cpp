@@ -1882,7 +1882,7 @@ int CCamera::SendCommand( int cameraId, int task )
 
 		t_save_start = timeGetTime();
 
-#if 1
+#if 0
 		//ファイル保存////////////////////////////////////////////////////////////////
 
 		t_saveColor = timeGetTime();

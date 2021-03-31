@@ -1,0 +1,12 @@
+int CCamera::Detection(unsigned long frame, Connection connection){
+
+	input setArea( 0, 0, 320, 240 );	→ area.s_w = 0, area.s_h = 0, area.e_w = 320, area.e_h = 240	(s_w, s_h は始点座標、e_w, e_h は終点座標)
+
+	Resetflag();				→ image_is_diff・human_detection・object_detection・event_flag を falseにして初期化
+
+	image_is_diff = edit.imageEdit( flame, input );		→ 【imageEdit(flame, input).txt】へ
+
+	human_detection = Human.HumanSearch( frame, input );	→ 【HumanSearch(frame, input).txt】へ
+
+
+

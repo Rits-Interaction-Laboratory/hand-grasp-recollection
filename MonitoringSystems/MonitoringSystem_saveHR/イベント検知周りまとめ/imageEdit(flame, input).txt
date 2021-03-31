@@ -1,0 +1,49 @@
+bool Edit::imageEdit(unsigned long frame,image &input){
+
+	Diff_init(input); ⇒ void Diff_init(image &input){Diff =depth_Diff = cv::Mat(cv::Size(input.Width(),input.Height()), CV_8UC1, cv::Scalar(0));}
+	→ cv::Mat Diff, depth_Diff; を　320*240*1 の Unsigned 8bit 全画素値黒(0)で塗りつぶし
+
+	int re=0;
+
+	static unsigned long f=0;	//フラグ
+
+	++f;				//フラグインクリメント
+
+	//距離情報と画像情報との重ね合わせによるマッチング
+
+	if(input.kinect_on){
+
+		//初期化
+		depth_Diff_init(input); ⇒ void depth_Diff_init(image &input){depth_Diff = cv::Mat(cv::Size(input.Width(),input.Height()), CV_8UC1, cv::Scalar(0));}
+		→ cv::Mat depth_Diff を 320*240*1 の Unsigned 8bit 全画素値黒(0)で塗りつぶし(二度手間？)
+
+		if(f>FLAME_NUM){}		→ 何もやってない
+		//推定depth背景とdepthの差分
+		//depth_diff(input);
+
+
+		//背景推定
+		depth_M_estimator(input);		→ 【depth_M_estimator(input).txt】へ。背景推定しているっぽいが今は無視
+		//200フレーム分のdepth背景を利用する
+
+		if(f>FLAME_NUM)				→ FLAME_NUM(200) を超えたら
+		{
+			//depth背景の膨張収縮処理
+			depth_isDiff_Expand_Contract();	→ 膨張2回⇒収縮2回⇒膨張1回⇒収縮1回
+
+			//画像の差分を付け加える
+			depth_image_Matching(input);
+		}
+		//cout<<"depth"<<endl;
+	}
+
+	//ラベリング
+	Labeling(input);			→ 【Labeling(input).txt】へ。ColorとDepthをマッチングして、背景差分をラベリングしてるっぽい
+
+	//解放
+	Diff_releace();
+
+	if(input.LabelData()>0){re=1;}
+	if(re==1)	return true;
+	return false;
+}
